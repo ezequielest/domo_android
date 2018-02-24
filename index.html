@@ -28,16 +28,25 @@
                     <div class="toggle-handle"></div>
                   </div>
                 </li>
+
+                <li class="table-view-cell">
+                        Temperatura
+                        <div id="temperatura"></div>
+                </li>
+                <li class="table-view-cell">
+                        Humedad
+                        <div id="humedad"></div>
+                </li>
         </ul>
         </section>
 
-        <div id="temp" style="width:100%; height:300px;"></div>
-        <div id="hum" style="width:100%; height:300px;"></div>
+        
+        
     </div>
 
   <script src="cordova.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/echarts-en.js"></script>
+  <!--<script src="js/echarts-en.js"></script>-->
   <script src="js/ratchet.js"></script>
 </body>
 
@@ -185,7 +194,7 @@ function obtenerInfoDHT(){
     })
 }*/
 }
-
+/*
 var temperatura = echarts.init(document.getElementById('temp'));
 var humedad = echarts.init(document.getElementById('hum'));
 
@@ -231,7 +240,7 @@ optionHumedad = {
 };
 
 optionTemperatura.series[0].data[0].value = 0;
-optionHumedad.series[0].data[0].value = 0;
+optionHumedad.series[0].data[0].value = 0;*/
 
 var actualizarDHT = function(){
     dht = new Dht();
@@ -253,11 +262,11 @@ var promise = new Promise(function(res,rej){
     count++;
     if (count > 1)
     {
-        optionTemperatura.series[0].data[0].value = datosTemp[0].temp;
-        optionHumedad.series[0].data[0].value = datosTemp[0].hum;
+        $("#temperatura").html(datosTemp[0].temp);
+        $("#humedad").html(datosTemp[0].hum);
 
-        temperatura.setOption(optionTemperatura, true);
-        humedad.setOption(optionHumedad, true);
+        /*temperatura.setOption(optionTemperatura, true);
+        humedad.setOption(optionHumedad, true);*/
     }
 })
 },5000);
