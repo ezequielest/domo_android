@@ -1,0 +1,21 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+.container{
+    padding: 20px 0;
+}
+
+header{
+    background-color:#222 !important;
+}
+
+header h1{
+    color: #ddd !important;
+}
+
+.botones{
+    margin-top:20px;
+}
+
