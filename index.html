@@ -40,6 +40,9 @@
         </ul>
         </section>
 
+        <input type="text" id="ip" placeholder="ip">
+        <button id="enviarIp" class="btn btn-positive btn-block">Enviar</button>
+
         
         
     </div>
@@ -55,10 +58,16 @@
 
 var dht;
 var relay;
-
+var ip;
 document.addEventListener('deviceready', () => {
   console.log("DEVICE IS READY!");    
 }, false)
+
+
+
+$("#enviarIp").on("click",function(){
+    ip = $("#ip").val();
+})
 
 
 //CONTROLADORA DE LUZ
@@ -121,7 +130,8 @@ function Relay(){
 
 function cApagarRelay(num){
     return $.ajax({
-        url: 'http://' + datosTemp[0].ip +'/apagarLuz?luz='+num,
+        //url: 'http://' + datosTemp[0].ip +'/apagarLuz?luz='+num,
+        url: 'http://192.168.1.'+ip+'/apagarLuz?luz='+num,
         method: "POST"
     }).done(function(respuesta){
         return respuesta
@@ -130,7 +140,8 @@ function cApagarRelay(num){
 
 function cEncenderRelay(num){
     return $.ajax({
-        url: 'http://' + datosTemp[0].ip +'/encenderLuz?luz='+num,
+        //url: 'http://' + datosTemp[0].ip +'/encenderLuz?luz='+num,
+        url: 'http://192.168.1.'+ip+'/encenderLuz?luz='+num,
         method: "POST"
     }).done(function(respuesta){
         return respuesta
