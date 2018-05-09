@@ -9,7 +9,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <icon src="./img/domo.png" width="57" height="57" />
+    <icon src="img/domo.png"/>
     <engine name="browser" spec="~5.0.3" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
     <plugin name="cordova-plugin-x-toast" spec="https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin" />
